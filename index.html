@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falla en Acceso</title>
+    <style>
+        /* Estilos para la ventana emergente */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 3px solid #ed7318; /* Color de borde */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        /* Estilos para el fondo oscuro */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        /* Estilos para el botón de cerrar */
+        .close-btn {
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* Estilos para los logos */
+        .logos {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logos img {
+            max-height: 50px;
+            margin: 0 10px;
+        }
+
+        /* Estilos responsivos para dispositivos móviles */
+        @media (max-width: 600px) {
+            .popup {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <button class="close-btn" id="closeBtn">Cerrar</button>
+        <div class="logos">
+            <img src="https://e7.pngegg.com/pngimages/1023/193/png-clipart-graphics-logo-netflix-television-macbeth-2015-netflix-television-text.png" alt="Netflix Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Max_logo.svg/1280px-Max_logo.svg.png" alt="Max Logo">
+        </div>
+        <h2>Falla en Acceso a Cuentas Netflix y Max</h2>
+        <p>Usuarios han reportado falla al intentar acceder a sus cuentas de streaming Netflix y Max, pues les dice problema de red o simplemente no les permite el ingreso a estos servicios.</p>
+        <p><strong>Es importante resaltar que este inconveniente no tiene nada que ver con las cuentas entregadas por nuestra plataforma y es enteramente de los servicios de internet que operan en Venezuela.</strong></p>
+        <div class="footer-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwpxh3ZM-hpGlx53YKoeH8DmK_jF5frQ76SQ&s" alt="Red Icon" style="max-height: 50px; display: block; margin: 20px auto 0;">
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar la ventana emergente
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Función para cerrar la ventana emergente
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Mostrar la ventana emergente al cargar la página
+        window.onload = function() {
+            showPopup();
+        }
+
+        // Agregar evento al botón de cerrar
+        document.getElementById('closeBtn').onclick = function() {
+            closePopup();
+        }
+    </script>
+</body>
+</html>
